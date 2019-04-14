@@ -6,6 +6,7 @@
 (eval-after-load "counsel" '(diminish 'counsel-mode))
 (eval-after-load "ivy" '(diminish 'ivy-mode))
 (eval-after-load "company" '(diminish 'company-mode))
+(eval-after-load "importmagic" '(diminish 'importmagic-mode))
 
 (diminish 'magit-auto-revert-mode)
 (diminish 'auto-revert-mode)
