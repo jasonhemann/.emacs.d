@@ -63,7 +63,7 @@
 (global-set-key (kbd "C-e") 'move-end-of-line)                   ;; e(nd of line)
 (global-set-key (kbd "C-f") 'scroll-down)
 (global-set-key (kbd "C-g") 'keyboard-quit)                      ;; g(et out of here)
-(global-set-key (kbd "C-s") 'swiper)                             ;; s(earch)
+(global-set-key (kbd "C-s") 'swiper-isearch)                     ;; s(earch)
 (global-set-key (kbd "C-v") 'scroll-up)
 (global-set-key (kbd "C-w") 'kill-region)
 (global-set-key (kbd "M-g") 'goto-line)                          ;; g(oto)
