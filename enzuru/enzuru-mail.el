@@ -2,7 +2,6 @@
 (autoload 'wl "wl" "Wanderlust" t)
 (autoload 'wl-other-frame "wl" "Wanderlust on new frame." t)
 (autoload 'wl-draft "wl-draft" "Write draft with Wanderlust." t)
-(autoload 'wl-draft-send-with-imput-async "im-wl")
 (autoload 'wl-user-agent-compose "wl-draft" nil t)
 
 ;; IMAP
@@ -23,11 +22,24 @@
 ;; Folders
 (setq wl-default-spec "%")
 (setq wl-default-folder "%inbox")
-(setq wl-draft-folder "%[Gmail]/Drafts") ; Gmail IMAP
 (setq wl-trash-folder "%[Gmail]/Trash")
+(setq wl-draft-folder "+drafts")
+
+;; Mailing lists
+(setq wl-subscribed-mailing-list
+      '("emacs-devel@gnu.org"
+        "emacs-diffs@gnu.org"
+        "freebsd-current@freebsd.org"
+        "svn-src-head@freebsd.org"
+        "bugs@openbsd.org"
+        "tech@openbsd.org"
+        "ppc@openbsd.org"
+        "source-changes@openbsd.org"
+        "9front@9front.org"
+        "9front-bugs@9front.org"
+        "9front-commits@9front.org"))
 
 ;; Asynchronous
-(setq wl-draft-send-function 'wl-draft-send-with-imput-async)
 (setq wl-folder-check-async t)
 
 ;; Quicksearch
@@ -37,9 +49,14 @@
 (setq wl-summary-indent-length-limit nil)
 (setq wl-summary-width nil)
 
-;; Details
-(setq wl-local-domain "enzu.ru")
+;; From
 (setq wl-from "Ahmed Khanzada <me@enzu.ru>")
+(setq wl-local-domain "enzu.ru")
+
+;; Line limits
+(setq-default fill-column 72)
+(add-hook 'wl-draft-mode-hook 'auto-fill-mode)
+(setq wl-draft-truncate-lines 72)
 
 ;; User agent
 (if (boundp 'mail-user-agent)
@@ -52,7 +69,7 @@
       'wl-draft-kill
       'mail-send-hook))
 
-;; Ignore  all fields...
+;; Ignore all fields...
 (setq wl-message-ignored-field-list '("^.*:"))
 
 ;; ...except these
@@ -62,6 +79,3 @@
   "^From:"
   "^Subject:"
   "^Date:"))
-
-;; -comp.os.plan9:enzuru@eternal-september.org:119
-;; (setq wl-draft-folder "+drafts")
