@@ -27,3 +27,4 @@
 (diminish 'flycheck-mode)
 (diminish 'importmagic-mode)
 (diminish 'import)
+(diminish 'which-key-mode)

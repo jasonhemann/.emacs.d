@@ -1,7 +1,8 @@
-;; wanderlust
+;; Autoloading
 (autoload 'wl "wl" "Wanderlust" t)
 (autoload 'wl-other-frame "wl" "Wanderlust on new frame." t)
 (autoload 'wl-draft "wl-draft" "Write draft with Wanderlust." t)
+(autoload 'wl-user-agent-compose "wl-draft" nil t)
 
 ;; IMAP
 (setq elmo-imap4-default-server "imap.gmail.com")
@@ -9,7 +10,6 @@
 (setq elmo-imap4-default-authenticate-type 'clear)
 (setq elmo-imap4-default-port '993)
 (setq elmo-imap4-default-stream-type 'ssl)
-
 (setq elmo-imap4-use-modified-utf7 t)
 
 ;; SMTP
@@ -18,20 +18,47 @@
 (setq wl-smtp-authenticate-type "plain")
 (setq wl-smtp-posting-user "me@enzu.ru")
 (setq wl-smtp-posting-server "smtp.gmail.com")
-(setq wl-local-domain "enzu.ru")
 
-(setq wl-default-folder "%inbox")
+;; Folders
 (setq wl-default-spec "%")
-(setq wl-draft-folder "%[Gmail]/Drafts") ; Gmail IMAP
+(setq wl-default-folder "%inbox")
 (setq wl-trash-folder "%[Gmail]/Trash")
+(setq wl-draft-folder "+drafts")
 
+;; Mailing lists
+(setq wl-subscribed-mailing-list
+      '("emacs-devel@gnu.org"
+        "emacs-diffs@gnu.org"
+        "freebsd-current@freebsd.org"
+        "svn-src-head@freebsd.org"
+        "bugs@openbsd.org"
+        "tech@openbsd.org"
+        "ppc@openbsd.org"
+        "source-changes@openbsd.org"
+        "9front@9front.org"
+        "9front-bugs@9front.org"
+        "9front-commits@9front.org"))
+
+;; Asynchronous
 (setq wl-folder-check-async t)
 
+;; Quicksearch
+(setq wl-quicksearch-folder "%[Gmail]/All Mail")
+
+;; Summary
+(setq wl-summary-indent-length-limit nil)
+(setq wl-summary-width nil)
+
+;; From
 (setq wl-from "Ahmed Khanzada <me@enzu.ru>")
+(setq wl-local-domain "enzu.ru")
 
-(setq elmo-imap4-use-modified-utf7 t)
+;; Line limits
+(setq-default fill-column 72)
+(add-hook 'wl-draft-mode-hook 'auto-fill-mode)
+(setq wl-draft-truncate-lines 72)
 
-(autoload 'wl-user-agent-compose "wl-draft" nil t)
+;; User agent
 (if (boundp 'mail-user-agent)
     (setq mail-user-agent 'wl-user-agent))
 (if (fboundp 'define-mail-user-agent)
@@ -42,21 +69,13 @@
       'wl-draft-kill
       'mail-send-hook))
 
-;; ignore  all fields
+;; Ignore all fields...
 (setq wl-message-ignored-field-list '("^.*:"))
 
-;; ..but these five
+;; ...except these
 (setq wl-message-visible-field-list
 '("^To:"
   "^Cc:"
   "^From:"
   "^Subject:"
   "^Date:"))
-
-(setq wl-summary-indent-length-limit nil)
-(setq wl-summary-width nil)
-
-;; -comp.os.plan9:enzuru@eternal-september.org:119
-;; (setq wl-draft-folder "+drafts")
-
-(setq wl-quicksearch-folder "%[Gmail]/All Mail")

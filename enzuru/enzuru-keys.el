@@ -59,6 +59,7 @@
 
 (global-set-key (kbd "<C-tab>") 'other-window)                   ;; psuedo tab-like functionality
 (global-set-key (kbd "C-;") 'comment-or-uncomment-region)        ;; use symbol of comment to comment
+(global-set-key (kbd "C-=") 'er/expand-region)                   ;; increasingly expand selected region
 (global-set-key (kbd "C-a") 'move-beginning-of-line)             ;; a(lpha of line)
 (global-set-key (kbd "C-e") 'move-end-of-line)                   ;; e(nd of line)
 (global-set-key (kbd "C-f") 'scroll-down)
