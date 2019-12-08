@@ -11,17 +11,17 @@
 (set-face-attribute 'variable-pitch nil
                     :family "Open Baskerville 0.0.75" :height 130 :weight 'normal)
 
+(defun async-term ()
+  "Open terminal"
+  (interactive)
+  (start-process "urxvtc" "urxvtc" "urxvtc"))
+
 (require 'exwm-config)
 (exwm-config-default)
 
 (setq inferior-lisp-program "/usr/local/bin/sbcl")
 
 (load-library "enzuru-common-lisp")
-
-(defun async-term ()
-  "Open terminal"
-  (interactive)
-  (start-process "urxvtc" "urxvtc" "urxvtc"))
 
 (require 'exwm-systemtray)
 (exwm-systemtray-enable)

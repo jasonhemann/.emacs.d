@@ -3,6 +3,8 @@
 (package-initialize)
 (add-to-list 'load-path "~/.emacs.d/enzuru/")
 (load-library "enzuru-packages")
+(add-to-list 'load-path "~/.emacs.d/elpa/xelb-0.17/")
+(add-to-list 'load-path "~/.emacs.d/elpa/exwm-0.22.1/")
 
 ;; Features
 
