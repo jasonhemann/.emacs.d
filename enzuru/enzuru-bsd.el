@@ -21,9 +21,9 @@
 
 (setq inferior-lisp-program "/usr/local/bin/sbcl")
 
-(load-library "enzuru-common-lisp")
-
 (require 'exwm-systemtray)
 (exwm-systemtray-enable)
 
 (setq elpy-rpc-python-command "python3")
+
+(find-file "~/org/index.org")

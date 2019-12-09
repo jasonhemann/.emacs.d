@@ -10,6 +10,7 @@
 
 (load-library "enzuru-file-manager")
 (load-library "enzuru-help")
+(load-library "enzuru-hyperlinking")
 (load-library "enzuru-mail")
 (load-library "enzuru-project-management")
 (load-library "enzuru-scheduler")
@@ -25,6 +26,7 @@
 (load-library "enzuru-c")
 (load-library "enzuru-coffeescript")
 (load-library "enzuru-css")
+(load-library "enzuru-emacs-lisp")
 (load-library "enzuru-feature")
 (load-library "enzuru-fountain")
 (load-library "enzuru-haskell")
@@ -32,7 +34,6 @@
 (load-library "enzuru-javascript")
 (load-library "enzuru-json")
 (load-library "enzuru-kotlin")
-(load-library "enzuru-lisp")
 (load-library "enzuru-markdown")
 (load-library "enzuru-objective-c")
 (load-library "enzuru-php")
