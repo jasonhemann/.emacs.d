@@ -36,6 +36,7 @@
 (load-library "enzuru-kotlin")
 (load-library "enzuru-markdown")
 (load-library "enzuru-objective-c")
+(load-library "enzuru-org")
 (load-library "enzuru-php")
 (load-library "enzuru-puppet")
 (load-library "enzuru-python")
