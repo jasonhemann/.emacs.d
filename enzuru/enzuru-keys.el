@@ -1,7 +1,9 @@
 ;; Help: C-h(elp)
 
+(global-set-key (kbd "C-h b") 'describe-bindings)                ;; C-h(elp) b(indings)
 (global-set-key (kbd "C-h f") 'counsel-describe-function)        ;; C-h(elp) f(unction)
 (global-set-key (kbd "C-h k") 'describe-key)                     ;; C-h(elp) k(ey)
+(global-set-key (kbd "C-h m") 'describe-mode)                    ;; C-h(elp) m(ode)
 (global-set-key (kbd "C-h v") 'counsel-describe-variable)        ;; C-h(elp) v(ariable)
 
 ;; Window management
