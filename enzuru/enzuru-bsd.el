@@ -19,7 +19,7 @@
 (require 'exwm-config)
 (exwm-config-default)
 
-(setq inferior-lisp-program "/usr/local/bin/sbcl")
+(setq inferior-lisp-program "/usr/local/bin/clisp -E UTF-8 -K full")
 
 (require 'exwm-systemtray)
 (exwm-systemtray-enable)
